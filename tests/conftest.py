@@ -10,7 +10,9 @@ def get_number():
 # можем использовать эту функцию, например, для удаления каки-то данных,
 # изменять какие-то поля, добавлять / удалять
 def _calculate(a, b):
-    return a + b
+    if isinstance(a, int) and isinstance(b, int):
+        return a + b
+    return None
 
 
 @pytest.fixture
@@ -22,4 +24,4 @@ def calculate():
 def make_number():
     number = randrange(0, 100)
     yield number
-    print("Teardown")
+    # print("Teardown")
