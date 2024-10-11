@@ -1,5 +1,6 @@
 import pytest
 from random import randrange
+from src.generators.player import Player
 
 
 @pytest.fixture
@@ -25,3 +26,8 @@ def make_number():
     number = randrange(0, 100)
     yield number
     # print("Teardown")
+
+
+@pytest.fixture
+def player_generator():
+    return Player()

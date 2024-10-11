@@ -33,3 +33,25 @@ def test_fail():
                           ])
 def test_calculate(calculate, first_value, second_value, result):
     assert calculate(first_value, second_value) == result
+
+
+@pytest.mark.parametrize('status', ['active', 'inactive'])
+def test_something(status, player_generator):
+    print(player_generator.set_status(status).build())
+
+
+@pytest.mark.parametrize('balance', ["100", "200"])
+def test_something(balance, player_generator):
+    print(player_generator.set_balance(balance).build())
+
+
+@pytest.mark.parametrize("delete_key", [
+    "account_status",
+    "balance",
+    "localize",
+    "avatar"
+])
+def test_something(delete_key, player_generator):
+    object_to_send = player_generator.build()
+    del object_to_send[delete_key]
+    print(object_to_send)
