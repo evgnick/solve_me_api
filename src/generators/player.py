@@ -1,3 +1,5 @@
+from encodings.punycode import selective_find
+
 from src.enums.user_enams import Status
 from src.generators.player_localization import PlayerLocalization
 
@@ -29,6 +31,10 @@ class Player:
             "en": PlayerLocalization("en_US").build(),
             "ru": PlayerLocalization("ru_RU").build()
         }
+        return self
+
+    def update_inner_value(self, key, value):
+        self.result[key] = value
         return self
 
     def build(self):
